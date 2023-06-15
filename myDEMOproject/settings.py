@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'tr-TR'
 
-TIME_ZONE = 'Europa/Istanbul'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
