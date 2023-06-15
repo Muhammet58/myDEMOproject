@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'blogapp/css/style.css' %}">
+{% endblock %}
+
+{% block title %}
+    Blog detayı
+{% endblock %}
+
+{% block content %}
+<ul>
+    <li><a href="/"><h2>Ana sayfa</h2></a></li>
+    <li><a href="/blog"><h2>Blog sayfası</h2></a></li>
+</ul>
+<br>
+<h1>Blog detayı : {{ id }}</h1>
+<br>
+<img src='static/img/django.png' alt="Görsel yüklenemedi" width="250">
+<!--img etiketi içinde alt özelliği içindeki metin, resim yüklenemezse veya tarayıcıda görüntülenemezse yerine geçen bir açıklamadır--!>
+{% endblock %}
