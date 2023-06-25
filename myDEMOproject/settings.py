@@ -123,7 +123,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-STATIC_ROOT = '/home/muhammetyildirim/myproject/staticfiles/'
 
 
 # Default primary key field type
