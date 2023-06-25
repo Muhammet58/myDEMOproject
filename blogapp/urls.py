@@ -7,8 +7,8 @@ from . import views
 
 
 urlpatterns = [
-    path("",views.index),                           #http://127.0.0.1:8000/
-    path("blog",views.blog),                        #http://127.0.0.1:8000/blog
-    path("blog/<int:id>",views.blog_details),       #http://127.0.0.1:8000/blog/3
+    path("", views.index, name='home'),                                  #http://127.0.0.1:8000/
+    path("blog", views.blog, name='blog'),                               #http://127.0.0.1:8000/blog
+    path("blog/<int:id>",views.blog_details, name='blog_details'),       #http://127.0.0.1:8000/blog/3
 
 ]

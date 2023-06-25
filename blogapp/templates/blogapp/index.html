@@ -2,91 +2,28 @@
 {% load static %}
 
 
-{% block title %}Ana sayfa{% endblock %}
+{% block title %} Ana sayfa {% endblock %}
 
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <img src="static/img/logo.png" alt="Logo" width="50" class="navbar me-3">
-        <a class="navbar-brand" ><h2>Muhammet Yıldırım Django Blog</h2></a>
-        <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0 nav-underline">
-          <li class="nav-item">
-            <a class="nav-link active link-info" aria-current="page" href="blog"><h4>blog sayfası</h4></a>
-          </li>
-        </ul>
-    </div>
-</nav>
-<div class="container ">
-    <div class="">
-        <div class="col-5">
-            <h3 style="color:green">menü</h3>
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action active" aria-current="true"></a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Web programlama</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-info">Python-Django</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-success">Bootstrap</a>
-              <a class="list-group-item list-group-item-action list-group-item-danger">Mobil uygulama</a>
-            </div>
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-8">
+            {% include 'blogapp/partials/_categories.html' %}
         </div>
         <div class="col-9">
-            <h3 style="color:green">içerik</h3>
-            <div class="card mb-3" style="max-width: 845px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="static/img/web_programlama.png" class="img-fluid rounded-start" alt="png yüklenemedi">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title">Web programlama nedir?</h4>
-                            <p class="card-text">Web programlama, Web içeriği, Web istemcisi ve ağ güvenliğini içeren Web geliştirme ile ilgili yazma, işaretleme ve kodlama anlamına gelir. Web programlama için kullanılan en yaygın diller css, HTML, JavaScript</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 845px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="static/img/django.png" class="img-fluid rounded-start" alt="png yüklenemedi">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title">Python-Django nedir?</h4>
-                            <p class="card-text">Django, Python Programlama Dili için hazırlanmış ve BSD lisansı ile lisanslanmış yüksek seviyeli bir web çatısıdır.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 845px">
-                <div class="row g-0">
-                    <div class="col-md-3">
-                        <img src="static/img/bootstrap.png" class="img-fluid rounded-start" alt="png yüklenemedi">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="card-body">
-                            <h4 class="card-title">Bootstrap nedir?</h4>
-                            <p class="card-text">Twitter Bootstrap açık kaynak kodlu, web sayfaları veya uygulamaları geliştirmek için kullanılabilecek araçlar bütünü ve önyüz çatısı. Bootstrap, web sayfaları veya uygulamalarında kullanılabilecek, HTML ve CSS tabanlı tasarım şablonlarını içerir.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1 style="color:green">Ana sayfa</h1>
+            <hr color="green" size="10">
+
+            {% for blog in blogs %}
+                {% if blog.is_active and blog.is_home %}
+                    {% include 'blogapp/partials/_blogs.html' %}
+                {% endif %}
+            {% endfor %}
+
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-<!--<br>
-<h1 style="color:brown">Ana sayfa</h1>
-<br>
-<h3><em>Ana sayfaya hoşgeldiniz :</em></h3>
-<br>
-<img src="static/img/django.png" alt="görsel yüklenemedi" width="300">--!>
 
 {% endblock %}

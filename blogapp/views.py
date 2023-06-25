@@ -1,15 +1,79 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
 
+data = {
+    'blogs': [
+        {
+            'id': 1,
+            'title': 'web programlama kursu',
+            'image': '1.png',
+            'is_active': True,
+            'is_blog': False,
+            'is_home': True,
+            'description': "Bu kurs ile çok kısa sürede web programlamayı öğreneceksiniz. bu kurs web programlamanın temellerini size kısa sürede öğretir",
+        },
+        {
+            'id': 2,
+            'title': 'pyhon-django kursu ?',
+            'image': '2.png',
+            'is_active': True,
+            'is_blog': False,
+            'is_home': True,
+            'description': 'Bu kurs ile python programlama dilinin bir kütüphanesi olan django ile web programlamayı öğreniceksiniz.'
+        },
+        {
+            'id': 3,
+            'title': 'bootstrap nedir ?',
+            'image': '3.png',
+            'is_active': True,
+            'is_blog': False,
+            'is_home': True,
+            'description': 'Bootstrap açık kaynak kodlu, web sayfaları veya uygulamaları geliştirmek için kullanılabilecek araçlar bütünü ve önyüz çatısıdır. '
+        },
+        {
+            'id': 4,
+            'title': 'Java programlama kursu',
+            'image': '4.png',
+            'is_active': True,
+            'is_blog': True,
+            'is_home': False,
+            'description': 'Bu kurs ile java programlama dilinin temellerini kısa sürede öğreniceksiniz. '
+        },
+        {
+            'id': 5,
+            'title': 'Flutter ile mobil uygulama yapma',
+            'image': '5.png',
+            'is_active': True,
+            'is_blog': True,
+            'is_home': False,
+            'description': 'Bu kurs size flutter ile mobil uygulama yapmayı öğretir'
+        }
+    ]
+}
 
 def index(request):
-    return render(request,"blogapp/index.html")
+    context = {
+        "blogs": data["blogs"]
+    }
+    return render(request, "blogapp/index.html", context)
 
 def blog(request):
-    return render(request,"blogapp/blogs.html")
+    context = {
+        "blogs": data["blogs"]
+    }
+    return render(request, "blogapp/blogs.html", context)
 
 def blog_details(request,id):
-    return render(request,"blogapp/blog-details.html",{'id':id})
+    #blogs = data['blogs']
+    #selectedBlog = None
+
+    #for blog in blogs:
+    #    if blog['id'] == id:
+    #        selectedBlog = blog
+
+    blogs = data['blogs']
+    selectedBlog = [blog for blog in blogs if blog['id'] == id][0]
+
+    return render(request, "blogapp/blog-details.html", {'blog':selectedBlog})
 
 
 

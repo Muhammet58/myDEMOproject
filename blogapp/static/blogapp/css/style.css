@@ -1,10 +1,10 @@
 h1 {
     font-size: 50px;
-    border-bottom: 5px  solid red;
+    border-bottom: 5px solid darkgoldenrod;
 }
 
-h3 {
-    font-size: 30px;
-    border-bottom: 2px solid red;
-
+.img {
+    border-radius: 20px;
+    border: 2px solid darkcyan;
+    width: 300px;
 }

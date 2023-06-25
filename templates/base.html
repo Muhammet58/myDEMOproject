@@ -1,6 +1,5 @@
-{% load static %}
-
 <!DOCTYPE html>
+{% load static %}
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +7,15 @@
     <meta name="viewport" content="width=devace-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     {% block css %}{% endblock %}
-    <title>{% block title %} {% endblock %} | MY.com</title>
+    <title>MY.com | {% block title %} {% endblock %}</title>
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    {% include 'partials/_navbar.html' %}
+
+    {% block content %}{% endblock %}
+
     <script src="{% static 'static/js/bootstrap.js' %}"></script>
+    <script src="{% static 'static/js/base.js' %}"></script>
+    {% block js_files %}{% endblock %}
 </body>
 </html>
