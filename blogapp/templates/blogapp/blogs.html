@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container mt-3">
     <div class="row">
-        <div class="col-3">
+        <div class="col-9">
             {% include 'blogapp/partials/_categories.html' %}
         </div>
         <div class="col-9">
@@ -16,9 +16,7 @@
             <hr color="green" size="10">
 
             {% for blog in blogs %}
-                {% if blog.is_blog and blog.is_active %}
-                    {% include 'blogapp/partials/_blogs.html' %}
-                {% endif %}
+                {% include 'blogapp/partials/_blogs.html' %}
             {% endfor %}
 
         </div>

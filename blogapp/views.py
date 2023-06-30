@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from .models import Blogs
 
-data = {
+"""data = {
     'blogs': [
         {
             'id': 1,
@@ -28,7 +29,7 @@ data = {
             'is_blog': False,
             'is_home': True,
             'description': 'Bootstrap açık kaynak kodlu, web sayfaları veya uygulamaları geliştirmek için kullanılabilecek araçlar bütünü ve önyüz çatısıdır. '
-        },
+        }, 
         {
             'id': 4,
             'title': 'Java programlama kursu',
@@ -48,21 +49,21 @@ data = {
             'description': 'Bu kurs size flutter ile mobil uygulama yapmayı öğretir'
         }
     ]
-}
+}"""
 
 def index(request):
     context = {
-        "blogs": data["blogs"]
+        "blogs": Blogs.objects.all()
     }
     return render(request, "blogapp/index.html", context)
 
 def blog(request):
     context = {
-        "blogs": data["blogs"]
+        "blogs": Blogs.objects.filter(is_blog=True)
     }
     return render(request, "blogapp/blogs.html", context)
 
-def blog_details(request,id):
+def blog_details(request, slug):
     #blogs = data['blogs']
     #selectedBlog = None
 
@@ -70,10 +71,13 @@ def blog_details(request,id):
     #    if blog['id'] == id:
     #        selectedBlog = blog
 
-    blogs = data['blogs']
-    selectedBlog = [blog for blog in blogs if blog['id'] == id][0]
+    #blogs = data['blogs']
+    #selectedBlog = [blog for blog in blogs if blog['id'] == id][0]
 
-    return render(request, "blogapp/blog-details.html", {'blog':selectedBlog})
+    data = {
+        "blog":Blogs.objects.get(slug=slug)
+    }
+    return render(request, "blogapp/blog-details.html", data)
 
 
 
