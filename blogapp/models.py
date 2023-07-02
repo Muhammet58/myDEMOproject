@@ -1,10 +1,11 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 class Blogs(models.Model):
     title = models.CharField(max_length=100)
-    image = models.CharField(max_length=100)
-    description = models.TextField()
+    image = models.ImageField(upload_to="images")
+    description = RichTextField(models.TextField)
     is_active = models.BooleanField(default=True)
     is_home = models.BooleanField()
     is_blog = models.BooleanField()

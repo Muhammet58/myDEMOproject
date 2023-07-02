@@ -1,16 +1,16 @@
 {% load static %}
 
-<div class="card mb-4" style="max-width: 900px">
+<div class="card mb-4" style="max-width: 2000px">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{% static 'img/'|add:blog.image %}" class="img-fluid rounded-start" alt="png yüklenemedi" width="230">
+            <img src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="png yüklenemedi" width="150">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h3 class="card-title">
-                    <a href="{% url 'blog_details' blog.slug %}">{{ blog.title }}</a>
+                    <a style="text-decoration:none;" href="{% url 'blog_details' blog.slug %}">{{ blog.title|title }}</a>
                 </h3>
-                <p class="card-text">{{ blog.description }}</p>
+                <p class="card-text" style="margin-top:30px"> Ayrıntılar için üst tarafta bulunan linke basın !</p>
             </div>
         </div>
     </div>

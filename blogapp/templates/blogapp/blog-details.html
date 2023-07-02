@@ -15,17 +15,13 @@
         <div class="col-12">
             <hr color="blue" size="10">
 
-            <div class="card mb-3" style="max-width: 1300px">
+            <div class="card mb-3" style="max-width: 2000px">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{% static 'img/'|add:blog.image %}" class="img-fluid rounded-start" alt="png yüklenemedi" width="230">
-                    </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card-body">
-                            <h3 class="card-title">
-                                {{ blog.title }}
-                            </h3>
-                            <p class="card-text">{{ blog.description }}</p>
+                            <h1 class="card-title">{{ blog.title|title }} :</h1>
+                            <img style="float:left; margin-bottom:25px; margin-top:25px; margin-right:25px; margin-left:25px;" src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="png yüklenemedi" width="500">
+                            <p class="card-text">{{ blog.description|safe }}</p>
                         </div>
                     </div>
                 </div>

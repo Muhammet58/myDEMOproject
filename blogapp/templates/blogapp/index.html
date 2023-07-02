@@ -6,15 +6,15 @@
 
 {% block content %}
 
+<h1 style="color:green; text-align:center; margin-top:20px; margin-top:20px;">Ana sayfa</h1>
+<hr color="green" size="10">
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-9">
+        <div class="col-3">
             {% include 'blogapp/partials/_categories.html' %}
         </div>
         <div class="col-9">
-            <h1 style="color:green">Ana sayfa</h1>
-            <hr color="green" size="10">
 
             {% for blog in blogs %}
                 {% if blog.is_active and blog.is_home %}
