@@ -1,10 +1,13 @@
 {% load static %}
 
 <div class="list-group">
-    <a style="text-align:center" href="" class="list-group-item list-group-item-action active" aria-current="true"></a>
-    <a style="text-align:center" href="" class="list-group-item list-group-item-action list-group-item-primary">Web programlama</a>
-    <a style="text-align:center" href="" class="list-group-item list-group-item-action list-group-item-success">Python-Django</a>
-    <a style="text-align:center" href="" class="list-group-item list-group-item-action list-group-item-danger">Bootstrap</a>
-    <a style="text-align:center" href="" class="list-group-item list-group-item-action list-group-item-info">Java programlama dili</a>
-    <a style="text-align:center" href="" class="list-group-item list-group-item-action list-group-item-warning">Flutter ile mobil uygulama</a>
+    {% for categori in category%}
+        {% if categori.slug == selected_category %}
+            <a class="list-group-item list-group-item-dark active"></a>
+            <a style="text-align:center; color:#ffffff; " href="{% url 'blogs_by_category' categori.slug %}" class="list-group-item list-group-item-action list-group-item-warning active" aria-current="true">{{categori.name|title}}</a>
+        {% else %}
+            <a class="list-group-item list-group-item-dark active"></a>
+            <a style="text-align:center; color:#000000; " href="{% url 'blogs_by_category' categori.slug %}" class="list-group-item list-group-item-action list-group-item-info" aria-current="true">{{categori.name|title}}</a>
+        {% endif %}
+    {% endfor %}
 </div>

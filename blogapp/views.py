@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Blogs
+from .models import Blogs, Category
 
 """data = {
     'blogs': [
@@ -53,13 +53,15 @@ from .models import Blogs
 
 def index(request):
     context = {
-        "blogs": Blogs.objects.all()
+        "blogs": Blogs.objects.all(),
+        "category": Category.objects.all()
     }
     return render(request, "blogapp/index.html", context)
 
 def blog(request):
     context = {
-        "blogs": Blogs.objects.filter(is_blog=True)
+        "blogs": Blogs.objects.filter(is_blog=True),
+        "category":Category.objects.all()
     }
     return render(request, "blogapp/blogs.html", context)
 
@@ -80,7 +82,13 @@ def blog_details(request, slug):
     return render(request, "blogapp/blog-details.html", data)
 
 
-
+def blogs_by_category(request, slug):
+    data = {
+        "blogs": Blogs.objects.filter(category__slug = slug),
+        "category": Category.objects.all(),
+        "selected_category": slug
+    }
+    return render(request, "blogapp/blogs.html", data)
 
 
 

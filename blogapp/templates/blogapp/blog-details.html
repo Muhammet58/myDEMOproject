@@ -13,14 +13,14 @@
             {% include 'blogapp/partials/_categories.html' %}
         </div>-->
         <div class="col-12">
-            <hr color="blue" size="10">
+            <hr color="red" size="10">
 
             <div class="card mb-3" style="max-width: 2000px">
                 <div class="row g-0">
                     <div class="col-md-12">
                         <div class="card-body">
                             <h1 class="card-title">{{ blog.title|title }} :</h1>
-                            <img style="float:left; margin-bottom:25px; margin-top:25px; margin-right:25px; margin-left:25px;" src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="png yüklenemedi" width="500">
+                            <img style="float:left; margin-bottom:25px; margin-top:25px; margin-right:25px;" src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="png yüklenemedi" width="500">
                             <p class="card-text">{{ blog.description|safe }}</p>
                         </div>
                     </div>

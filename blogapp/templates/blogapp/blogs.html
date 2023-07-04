@@ -7,8 +7,8 @@
 
 {% block content %}
 
-<h1 style="color:green; text-align:center; margin-top:20px; margin-bottom:20px;">Blog sayfası</h1>
-<hr color="green" size="10">
+<h1 style="color:white; text-align:center; margin-top:20px; margin-bottom:20px;">Blog sayfası</h1>
+<hr color="red" size="10">
 
 <div class="container mt-3">
     <div class="row">
@@ -17,10 +17,13 @@
         </div>
         <div class="col-12 mt-3">
 
-            {% for blog in blogs %}
-                {% include 'blogapp/partials/_blogs.html' %}
-            {% endfor %}
-
+            {% if blogs|length > 0 %}
+                {% for blog in blogs %}
+                    {% include 'blogapp/partials/_blogs.html' %}
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-warning" role="alert" style="text-align:center; font-weight:500; color:#000000; ">Bu kategori ile ilgili bir içerik bulunamadı !</div>
+            {% endif %}
         </div>
     </div>
 </div>
