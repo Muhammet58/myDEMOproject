@@ -21,7 +21,8 @@ class Blogs(models.Model):
     is_home = models.BooleanField()
     is_blog = models.BooleanField()
     slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    #category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(Category, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

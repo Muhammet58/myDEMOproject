@@ -77,14 +77,15 @@ def blog_details(request, slug):
     #selectedBlog = [blog for blog in blogs if blog['id'] == id][0]
 
     data = {
-        "blog":Blogs.objects.get(slug=slug)
+        "blog": Blogs.objects.get(slug=slug),
     }
     return render(request, "blogapp/blog-details.html", data)
 
 
 def blogs_by_category(request, slug):
     data = {
-        "blogs": Blogs.objects.filter(category__slug = slug),
+        "blogs": Category.objects.get(slug=slug).blogs_set.all(),
+        #"blogs": Blogs.objects.filter(categories__slug=slug),
         "category": Category.objects.all(),
         "selected_category": slug
     }

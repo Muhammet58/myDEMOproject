@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %} Blog sayfası {% endblock %}
+{% block title %} Blog_sayfası {% endblock %}
 
 
 {% block content %}
@@ -10,12 +10,13 @@
 <h1 style="color:white; text-align:center; margin-top:20px; margin-bottom:20px;">Blog sayfası</h1>
 <hr color="red" size="10">
 
-<div class="container mt-3">
+<div class="container">
     <div class="row">
         <div class="col-12">
             {% include 'blogapp/partials/_categories.html' %}
         </div>
-        <div class="col-12 mt-3">
+        <div class="col-12">
+            <hr color="red" size="10">
 
             {% if blogs|length > 0 %}
                 {% for blog in blogs %}

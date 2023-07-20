@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %} Blog detayı {% endblock %}
+{% block title %} Blog_detayı {% endblock %}
 
 
 {% block content %}
@@ -19,7 +19,7 @@
                 <div class="row g-0">
                     <div class="col-md-12">
                         <div class="card-body">
-                            <h1 class="card-title">{{ blog.title|title }} :</h1>
+                            <h2 class="card-title h1">{{ blog.title|title }} :</h2>
                             <img style="float:left; margin-bottom:25px; margin-top:25px; margin-right:25px;" src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="png yüklenemedi" width="500">
                             <p class="card-text">{{ blog.description|safe }}</p>
                         </div>

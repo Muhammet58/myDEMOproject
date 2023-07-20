@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Kayıt_Ol {% endblock %}
+
+{% block content %}
+
+<h1 style="color:white; text-align:center; margin-top:20px; margin-top:20px;">Kayıt OL</h1>
+<hr color="red" size="10">
+
+<div class="container mt-3">
+    <div class="col">
+        <form action="{% url 'register_url' %}" method="POST">
+            {% csrf_token %}
+
+            {% if error %}
+                <div class="alert alert-warning" role="alert" style="color:#000000; font-weight:700; text-align:center;">{{ error }}</div>
+            {% endif %}
+
+            <div class="row g-3">
+                <div class="col">
+                    <div class="mt-5">
+                        <label for="register_name" class="form-label" style="color:white;">Ad :</label>
+                        <input type="text" class="form-control form-control-lg border-5 border-danger" name="register_name" id="register_name" placeholder="name" value="{{ name }}">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mt-5">
+                         <label for="register_surname" class="form-label" style="color:white;">Soyad :</label>
+                        <input type="text" class="form-control form-control-lg border-5 border-danger" name="register_surname" id="register_surname" placeholder="surname" value="{{ surname }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col">
+                    <div class="mt-5">
+                        <label for="register_email" class="form-label" style="color:white;">E-posta :</label>
+                        <input type="email" class="form-control form-control-lg border-5 border-danger" name="register_email" id="register_email" placeholder="info@gmail.com" value="{{ email }}">
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="mt-5">
+                        <label for="register_username" class="form-label" style="color:white;">Kullanıcı adı :</label>
+                        <input type="text" class="form-control form-control-lg border-5 border-danger" name="register_username" id="register_username" placeholder="username" value="{{ username }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col">
+                    <div class="mt-5">
+                        <label for="register_password" class="form-label" style="color:white;">Şifre :</label>
+                        <input type="password" class="form-control form-control-lg border-5 border-danger" name="register_password" id="register_password" placeholder="password">
+                    </div>
+                </div>
+                <div class="col">
+                     <div class="mt-5">
+                        <label for="register_re-password" class="form-label" style="color:white;">Şifre tekrar :</label>
+                        <input type="password" class="form-control form-control-lg border-5 border-danger" name="register_re-password" id="register_re-password" placeholder="re-password">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-5">
+                <input type="submit" value="Kayıt ol" class="btn btn-outline-danger btn-lg">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

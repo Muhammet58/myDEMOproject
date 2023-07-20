@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Giriş {% endblock %}
+
+{% block content %}
+
+<h1 style="color:white; text-align:center; margin-top:20px; margin-top:20px;">Giriş</h1>
+<hr color="red" size="10">
+
+<div class="container mt-4">
+    <div class="col">
+
+        <form action="{% url 'login_url' %}" method="POST">
+            {% csrf_token %}
+
+            {% if error %}
+                <div class="alert alert-warning" role="alert" style="color:#000000; font-weight:500;">{{ error }}</div>
+            {% endif %}
+
+            <div class="mb-5">
+                <label for="login_username" class="form-label" style="color:white">Kullanıcı Adınız :</label>
+                <input type="text" class="form-control form-control-lg border-5 border-danger" name="login_username" id="login_username" placeholder="user_name">
+            </div>
+
+            <div class="mb-5">
+                <label for="login_password" class="form-label" style="color:white">Şifreniz :</label>
+                <input type="password" class="form-control form-control-lg  border-5 border-danger" name="login_password" id="login_password" placeholder="password">
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-5">
+                <input type="submit" value="Giriş" class="btn btn-outline-danger btn-lg">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

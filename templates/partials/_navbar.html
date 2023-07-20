@@ -1,14 +1,35 @@
 <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
     <div class="container-fluid">
         <!--<img src="static/img/vector_logo.png" alt="Logo" width="50" class="navbar me-3">-->
-        <a class="navbar-brand" ><h2>Muhammet Yıldırım Blog</h2></a>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-underline">
-            <li class="nav-item">
-              <a class="nav-link link-light" aria-current="page" href="{% url 'home' %}">ana sayfa</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link  link-light" aria-current="page" href="{% url 'blog' %}">blog sayfası</a>
-            </li>
-        </ul>
+        <a class="navbar-brand me-4" style="color:#ffffff;" ><h2>Muhammet Yıldırım Blog</h2></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
+                <li class="nav-item">
+                  <a class="nav-link link-light" aria-current="page" href="{% url 'home' %}">ana sayfa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  link-light" aria-current="page" href="{% url 'blog' %}">blog sayfası</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-underline">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link  link-light" aria-current="page" href="{% url 'logout' %}">Çıkış &nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <span class="nav-text my-2" style="color: #ffc107;">Hoşgeldin &nbsp;{{ user.get_full_name|title }} &nbsp;&nbsp;&nbsp;</span>
+                {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link link-light" aria-current="page" href="{% url 'login_url' %}">Giriş</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link  link-light" aria-current="page" href="{% url 'register_url' %}">Kayıt OL &nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </nav>
